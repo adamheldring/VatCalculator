@@ -91,7 +91,7 @@ class App extends React.Component {
 
           <br />
           <div className="formsection__textfields">
-            <label htmlFor="incVat">Including Vat:</label>
+            <label htmlFor="incVat">Including VAT:</label>
             <br />
             <input
               type="text"
@@ -101,7 +101,7 @@ class App extends React.Component {
               value={this.state.incVat}
             />
             <br />
-            <label htmlFor="exVat">Excluding Vat:</label>
+            <label htmlFor="exVat">Excluding VAT:</label>
             <br />
             <input
               type="text"
@@ -111,7 +111,7 @@ class App extends React.Component {
               value={this.state.exVat}
             />
             <br />
-            <label htmlFor="amountVat">Amount Vat:</label>
+            <label htmlFor="amountVat">Total amount VAT:</label>
             <br />
             <input
               type="text"
