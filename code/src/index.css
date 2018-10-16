@@ -35,7 +35,21 @@ body {
   position: relative;
 }
 
-/* Hiding standard radio buttons and replacing with styled bigger ones */
+.formsection__textfields {
+}
+.formsection__textfields input {
+  margin-top: 3px;
+  margin-bottom: 10px;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+}
+.formsection__textfields input:focus {
+  background-color: #D8DDEF;
+}
+
+
+/* Section hiding standard radio buttons and replacing with styled bigger ones */
 .radio-button-container {
   display: block;
   position: relative;
@@ -86,18 +100,9 @@ body {
 	border-radius: 50%;
 	background: #fff;
 }
-.formsection__textfields {
-}
-.formsection__textfields input {
-  margin-top: 3px;
-  margin-bottom: 10px;
-  border: none;
-  font-size: 20px;
-  padding: 5px;
-}
-.formsection__textfields input:focus {
-  background-color: #D8DDEF;
-}
+
+
+/* Media query section for responsiveness */
 
 @media (max-width: 730px) {
   .outer-wrapper {
