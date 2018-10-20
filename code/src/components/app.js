@@ -21,16 +21,20 @@ class App extends React.Component {
       amountVat: Math.round(exVatToIncVat(newVatRate, this.state.exVat) - this.state.exVat)
     })
   }
-  handleInputChange = (e) => {
+  handleIncVatChange = (e) => {
     const newUserInputValue = parseInt(e.target.value, 10)
-    if (e.target.id === "incVat") {
-      this.setState({
+    console.log('IncVatChange')
+    {this.setState({
         incVat: newUserInputValue,
         exVat: Math.round(incVatToExVat(this.state.vatRate, e.target.value)),
         amountVat: Math.round(newUserInputValue - incVatToExVat(this.state.vatRate, e.target.value))
       })
-    } else if (e.target.id === "exVat") {
-      this.setState({
+    }
+  }
+  handleExVatChange = (e) => {
+    const newUserInputValue = parseInt(e.target.value, 10)
+    console.log('ExVatChange')
+    {this.setState({
         incVat: Math.round(exVatToIncVat(this.state.vatRate, e.target.value)),
         exVat: newUserInputValue,
         amountVat: Math.round(exVatToIncVat(this.state.vatRate, e.target.value) - newUserInputValue)
@@ -55,7 +59,7 @@ class App extends React.Component {
               type="text"
               id="incVat"
               name="incVat"
-              onChange={this.handleInputChange}
+              onChange={this.handleIncVatChange}
               value={this.state.incVat} />
             <br />
             <label htmlFor="exVat">Excluding VAT:</label>
@@ -64,7 +68,7 @@ class App extends React.Component {
               type="text"
               id="exVat"
               name="exVat"
-              onChange={this.handleInputChange}
+              onChange={this.handleExVatChange}
               value={this.state.exVat} />
             <br />
             <label htmlFor="amountVat">Total amount VAT:</label>
@@ -73,7 +77,6 @@ class App extends React.Component {
               type="text"
               id="amountVat"
               name="amountVat"
-              onChange={this.handleInputChange}
               value={this.state.amountVat} />
             <br />
           </div>
