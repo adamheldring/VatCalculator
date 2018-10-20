@@ -22,22 +22,26 @@ class App extends React.Component {
     })
   }
   handleIncVatChange = (e) => {
-    const newUserInputValue = parseInt(e.target.value, 10)
-    console.log('IncVatChange')
-    {this.setState({
-        incVat: newUserInputValue,
+    if (isNaN(e.target.value) || !e.target.value) {
+      this.setState({ incVat: 0, exVat: 0, amountVat: 0 })
+    } else {
+      this.setState({
+        incVat: parseInt(e.target.value, 10),
         exVat: Math.round(incVatToExVat(this.state.vatRate, e.target.value)),
-        amountVat: Math.round(newUserInputValue - incVatToExVat(this.state.vatRate, e.target.value))
+        amountVat: Math.round(parseInt(e.target.value, 10) -
+        incVatToExVat(this.state.vatRate, e.target.value))
       })
     }
   }
   handleExVatChange = (e) => {
-    const newUserInputValue = parseInt(e.target.value, 10)
-    console.log('ExVatChange')
-    {this.setState({
+    if (isNaN(e.target.value) || !e.target.value) {
+      this.setState({ incVat: 0, exVat: 0, amountVat: 0 })
+    } else {
+      this.setState({
         incVat: Math.round(exVatToIncVat(this.state.vatRate, e.target.value)),
-        exVat: newUserInputValue,
-        amountVat: Math.round(exVatToIncVat(this.state.vatRate, e.target.value) - newUserInputValue)
+        exVat: parseInt(e.target.value, 10),
+        amountVat: Math.round(exVatToIncVat(this.state.vatRate, e.target.value) -
+        parseInt(e.target.value, 10))
       })
     }
   }
